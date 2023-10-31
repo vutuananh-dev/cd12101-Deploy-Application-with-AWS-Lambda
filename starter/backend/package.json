@@ -1,7 +1,7 @@
 {
   "name": "serverless-todo-app",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "description": "Serverless TODO image app",
   "main": "handler.js",
   "scripts": {
@@ -18,12 +18,17 @@
     "@middy/core": "^3.6.2",
     "@middy/http-cors": "^3.6.2",
     "@middy/http-error-handler": "^3.6.2",
+    "@types/jsonwebtoken": "^9.0.4",
     "aws-xray-sdk-core": "^3.4.0",
-    "axios": "^1.1.3",
+    "axios": "^1.4.0",
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
     "serverless-iam-roles-per-function": "^3.2.0",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.2.2"
   }
 }
