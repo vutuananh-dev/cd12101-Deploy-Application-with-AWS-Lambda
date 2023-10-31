@@ -21,15 +21,6 @@ provider:
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
     TODOS_S3_BUCKET: todos-app-bucket-${self:provider.stage}
     PROJECT_NAME: serverless-todo-app
-  iam:
-    role:
-      statements:
-        - Effect: "Allow"
-          Action:
-            - "xray:PutTraceSegments"
-            - "xray:PutTelemetryRecords"
-          Resource:
-            - "*"
 
 functions:
   Auth:
@@ -62,7 +53,7 @@ functions:
           cors: true
           authorizer: Auth
           request:
-            schema:
+            schemas:
               application/json: ${file(src/models/create-todo-model.json)}
     iamRoleStatements:
       - Effect: Allow
@@ -79,7 +70,7 @@ functions:
           cors: true
           authorizer: Auth
           request:
-            schema:
+            schemas:
               application/json: ${file(src/models/update-todo-model.json)}
     iamRoleStatements:
       - Effect: Allow
